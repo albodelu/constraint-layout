@@ -4,6 +4,8 @@ sudo: required # false for Container-Based Infrastructure, required for Sudo-ena
 
 before_cache:
   - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/modules-2/modules-2.lock # Avoid to repack it due locks
+  - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/3.3/classAnalysis/classAnalysis.lock
+  - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/3.3/jarSnapshots/jarSnapshots.lock
 
 cache:
   directories:
@@ -78,7 +80,7 @@ install:
   - echo yes | sdkmanager "$EMULATOR" # Install emulator system image
   # Create and start emulator
   - echo no | avdmanager create avd -n acib -k "$EMULATOR" -f --abi "$ABI" --tag "$TAG"
-  - emulator -avd acib -engine classic -no-window -no-boot-anim -screen no-touch -camera-back none -camera-front none -selinux permissive -verbose -qemu -m 512 &
+  - emulator -avd acib -engine classic -no-window -no-boot-anim -camera-back none -camera-front none -selinux permissive -verbose -qemu -m 512 &
   # Start adbd, wait for device connected and show android serial
   - adb wait-for-device get-serialno
   # Show version and download Gradle Wrapper if it's not already cached
@@ -91,7 +93,6 @@ install:
 before_script:
   # Wait for emulator fully-booted and disable animations
   - android-wait-for-emulator
-  - adb shell settings delete global overlay_display_devices &
   - adb shell settings put global window_animation_scale 0 &
   - adb shell settings put global transition_animation_scale 0 &
   - adb shell settings put global animator_duration_scale 0 &
