@@ -83,8 +83,7 @@
         android:id="@+id/textView"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="207dp"
-        android:labelFor="@+id/cameraEdit"
-        tools:ignore="MissingConstraints" />
+        android:labelFor="@+id/cameraEdit"/>
 
     <TextView
         android:text="@string/settings"
@@ -95,8 +94,7 @@
         android:id="@+id/textView2"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="255dp"
-        android:labelFor="@+id/settingsEdit"
-        tools:ignore="MissingConstraints" />
+        android:labelFor="@+id/settingsEdit"/>
 
     <EditText
         android:layout_width="214dp"
@@ -108,8 +106,7 @@
         app:layout_editor_absoluteY="195dp"
         android:id="@+id/cameraEdit"
         tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="194dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="194dp" />
 
     <EditText
         android:layout_width="214dp"
@@ -121,8 +118,7 @@
         app:layout_editor_absoluteY="248dp"
         android:id="@+id/settingsEdit"
         tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="247dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="247dp" />
 
     <Button
         android:text="@string/upload"
